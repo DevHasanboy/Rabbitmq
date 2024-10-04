@@ -15,6 +15,7 @@ public class MassageController {
     public MassageController(RabbitMQProducer producer) {
         this.producer=producer;
     }
+
     @GetMapping("/publisher")
     public ResponseEntity<String> sendMessage(@RequestParam(value = "message") String message) {
         producer.send(message);
